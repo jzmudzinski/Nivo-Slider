@@ -300,7 +300,13 @@
 				vars.randAnim = anims[Math.floor(Math.random()*(anims.length + 1))];
 				if(vars.randAnim == undefined) vars.randAnim = 'fade';
 			}
-		
+
+			//Run random effect from specified set (eg: effect:'fold,fade')
+			if(settings.effect.indexOf(',') != -1){
+				var anims = settings.effect.split(',');
+				vars.randAnim = $.trim(anims[Math.floor(Math.random()*anims.length)]);
+			}
+			
 			//Run effects
 			vars.running = true;
 			if(settings.effect == 'sliceDown' || settings.effect == 'sliceDownRight' || vars.randAnim == 'sliceDownRight' ||
